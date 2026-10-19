@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0f0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="app-icon.png">
+<link rel="icon" type="image/png" href="app-icon.png">
+<title>Red&amp;Rutina</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0f0c;--panel:#131a15;--panel2:#18211b;--line:#29372d;--text:#f4f7f4;--muted:#9aa79d;--green:#79d396;--green-dark:#285d3b;--green-soft:#193323;--white:#fff;--danger:#df907e;--safe-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{background:var(--bg);-webkit-text-size-adjust:100%;text-size-adjust:100%}body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--text);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{color:inherit;-webkit-tap-highlight-color:transparent}button:focus-visible,input:focus-visible{outline:2px solid var(--green);outline-offset:2px}.shell{max-width:760px;margin:0 auto;padding:calc(22px + env(safe-area-inset-top,0px)) 20px calc(108px + var(--safe-bottom))}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:11px;min-width:0}.brand-mark{width:42px;height:42px;flex:0 0 auto;display:grid;place-items:center;border-radius:14px;background:var(--green-soft);color:var(--green);font-size:22px}.brand h1{font-size:20px;letter-spacing:-.04em;margin:0;font-weight:750}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.date-tools{display:flex;align-items:center;gap:2px;padding:3px;background:var(--panel);border:1px solid var(--line);border-radius:14px;flex:0 0 auto}.date-tools button{width:42px;height:42px;border:0;border-radius:10px;background:transparent;font-size:20px;color:var(--text);touch-action:manipulation}.date-tools button:active{background:var(--panel2)}.date-tools input{width:132px;min-width:0;height:42px;padding:0 3px;border:0;background:transparent;color:var(--text);font-size:14px;font-weight:650;color-scheme:dark;text-align:center}.date-tools .today-btn{font-size:12px;font-weight:700;width:auto;padding:0 10px;color:var(--green)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:6px;background:#111713;border:1px solid var(--line);border-radius:17px;margin-bottom:16px}.tab{display:flex;justify-content:center;align-items:center;gap:8px;min-height:48px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:13px;font-weight:700;touch-action:manipulation}.tab .tab-icon{font-size:17px}.tab.active{background:var(--green-soft);color:var(--green);box-shadow:inset 0 0 0 1px rgba(121,211,150,.12)}.tab-count{font-size:10px;color:inherit;opacity:.8;padding:2px 6px;border-radius:99px;background:rgba(255,255,255,.06)}
+.summary{display:flex;align-items:center;justify-content:space-between;gap:15px;background:linear-gradient(115deg,#142019,#111713);border:1px solid var(--line);border-radius:17px;padding:15px 17px;margin-bottom:13px}.summary-title{font-size:13px;font-weight:700;margin:0}.summary-sub{font-size:12px;color:var(--muted);margin:3px 0 0}.summary-right{display:flex;align-items:center;gap:10px}.summary-count{font-size:12px;font-weight:700;color:#dce7de;white-space:nowrap}.meter{width:72px;height:5px;border-radius:9px;background:#2a352d;overflow:hidden}.meter i{display:block;width:0;height:100%;background:var(--green);border-radius:9px;transition:width .2s}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px 17px 8px}.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:1px 0 10px}.card-title{display:flex;align-items:center;gap:10px}.card-icon{width:36px;height:36px;display:grid;place-items:center;border-radius:12px;background:var(--green-soft);font-size:18px}.card h2{font-size:16px;margin:0;font-weight:750;letter-spacing:-.02em}.count{font-size:11px;font-weight:700;color:var(--muted);background:#202922;border-radius:99px;padding:5px 9px;white-space:nowrap}.group-label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#91a297;padding:11px 0 4px}.task{min-height:55px;display:flex;align-items:center;gap:12px;padding:9px 1px;border-bottom:1px solid #222c25}.task:last-child{border-bottom:0}.check{-webkit-appearance:none;appearance:none;width:22px;height:22px;border:1.5px solid #536157;border-radius:7px;background:#0e130f;flex:0 0 auto;margin:0;display:grid;place-items:center;cursor:pointer;touch-action:manipulation}.check:checked{background:var(--green-dark);border-color:var(--green)}.check:checked:after{content:"✓";color:#effff2;font-size:14px;font-weight:800}.task-text{flex:1;min-width:0}.task-name{font-size:14px;font-weight:620}.task.done .task-name{text-decoration:line-through;color:#849187}.task-note{font-size:11px;color:var(--muted);margin-top:2px}.badge{font-size:10px;border-radius:99px;padding:5px 8px;background:#202922;color:#b2beb5;white-space:nowrap;flex:0 0 auto}.badge.due{background:#38251f;color:#f0ad98}.badge.done-badge{background:#1b3825;color:var(--green)}
+.shop-form{display:flex;gap:8px;margin:1px 0 9px}.shop-form input{min-width:0;flex:1;height:46px;border:1px solid var(--line);border-radius:12px;background:#0e130f;color:var(--text);padding:0 13px;font-size:16px;outline:0}.shop-form input::placeholder{color:#738077}.shop-form input:focus{border-color:var(--green)}.add-btn{height:46px;padding:0 16px;border:0;border-radius:12px;background:var(--green);color:#0b160e;font-size:13px;font-weight:800;touch-action:manipulation}.shop-item{min-height:52px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #222c25;padding:8px 1px}.shop-item:last-child{border-bottom:0}.shop-item span{flex:1;min-width:0;overflow-wrap:anywhere;font-size:14px}.shop-item.bought span{text-decoration:line-through;color:#849187}.shop-item .check{width:22px;height:22px}.delete{width:40px;height:40px;border:0;border-radius:10px;background:transparent;color:#87938a;font-size:22px;touch-action:manipulation}.delete:active{background:#2a211e;color:var(--danger)}.empty{font-size:13px;color:var(--muted);padding:16px 2px 10px}.storage-note{margin:14px 0 0;text-align:center;color:#728077;font-size:11px}.view[hidden]{display:none!important}
+@media(max-width:520px){.shell{padding:calc(15px + env(safe-area-inset-top,0px)) 14px calc(98px + var(--safe-bottom))}header{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:15px}.brand{width:100%}.date-tools{width:100%;justify-content:space-between}.date-tools input{width:auto;flex:1;font-size:16px}.date-tools button{width:44px;height:44px}.date-tools .today-btn{width:auto;padding:0 12px}.tabs{position:fixed;z-index:5;left:0;right:0;bottom:0;margin:0;padding:7px 12px calc(7px + var(--safe-bottom));border:0;border-top:1px solid var(--line);border-radius:0;background:rgba(13,18,14,.97);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);gap:6px}.tab{flex-direction:column;gap:2px;min-height:54px;font-size:11px}.tab .tab-icon{font-size:19px;line-height:1.2}.tab-count{display:none}.summary{padding:13px 14px;margin-bottom:11px}.summary-title{font-size:12px}.meter{width:56px}.card{padding:13px 13px 7px;border-radius:16px}.task{gap:10px;min-height:58px}.task-name{font-size:14px}.task-note{max-width:230px;line-height:1.35}.badge{font-size:10px;padding:5px 7px}.storage-note{margin-top:12px}}
+@media(max-width:360px){.date-tools input{font-size:14px}.date-tools button{width:38px}.date-tools .today-btn{padding:0 8px}.badge{font-size:9px}.summary-right{gap:7px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand"><div class="brand-mark" aria-hidden="true">✓</div><div><h1>Red&amp;Rutina</h1><p id="headerDate">Dnevni popis</p></div></div>
+    <div class="date-tools" aria-label="Odabir datuma"><button id="prevDay" aria-label="Prethodni dan" type="button">‹</button><input type="date" id="datePicker" aria-label="Datum"><button id="nextDay" aria-label="Sljedeći dan" type="button">›</button><button id="todayBtn" class="today-btn" type="button">Danas</button></div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Kategorije">
+    <button class="tab active" id="tab-home" role="tab" aria-selected="true" aria-controls="view-home" data-view="home"><span class="tab-icon">⌂</span><span>Kuća</span><span class="tab-count" id="navHomeCount">0/13</span></button>
+    <button class="tab" id="tab-care" role="tab" aria-selected="false" aria-controls="view-care" data-view="care"><span class="tab-icon">✳</span><span>Njega</span><span class="tab-count" id="navCareCount">0/7</span></button>
+    <button class="tab" id="tab-shop" role="tab" aria-selected="false" aria-controls="view-shop" data-view="shop"><span class="tab-icon">▣</span><span>Shopping</span><span class="tab-count" id="navShopCount">0</span></button>
+  </nav>
+  <div class="summary" aria-live="polite"><div><p class="summary-title" id="summaryTitle">Kućanski poslovi</p><p class="summary-sub" id="summarySub">Označeni zadaci za odabrani dan</p></div><div class="summary-right" id="summaryRight"><span class="summary-count" id="summaryCount">0/13</span><span class="meter" aria-hidden="true"><i id="meterFill"></i></span></div></div>
+  <main>
+    <section class="view" id="view-home" role="tabpanel" aria-labelledby="tab-home"><div class="card"><div class="card-head"><div class="card-title"><div class="card-icon">🏠</div><h2>Kućanski poslovi</h2></div><span class="count" id="homeCount">0/13</span></div><div id="homeTasks"></div></div></section>
+    <section class="view" id="view-care" role="tabpanel" aria-labelledby="tab-care" hidden><div class="card"><div class="card-head"><div class="card-title"><div class="card-icon">🌿</div><h2>Osobna njega</h2></div><span class="count" id="careCount">0/7</span></div><div id="careTasks"></div></div></section>
+    <section class="view" id="view-shop" role="tabpanel" aria-labelledby="tab-shop" hidden><div class="card"><div class="card-head"><div class="card-title"><div class="card-icon">🛒</div><h2>Shopping lista</h2></div><span class="count" id="shopCount">0</span></div><form class="shop-form" id="addForm"><input id="shopInput" placeholder="Dodaj stavku…" maxlength="100" autocomplete="off" enterkeyhint="done"><button class="add-btn" type="submit">Dodaj</button></form><div id="shopList" class="shop-list"></div></div></section>
+  </main>
+  <p class="storage-note">Podaci se spremaju u ovom pregledniku.</p>
+</div>
+<script>
+(() => {
+  const homeTasks = [
+    {id:'sink',name:'Ostaviti sudoper čist i bez suđa',note:'Prljavo suđe staviti u perilicu.',type:'daily',group:'Svaki dan'},
+    {id:'dishwasher',name:'Provjeriti perilicu suđa',note:'Čistu isprazniti; prljavo suđe staviti unutra.',type:'daily',group:'Svaki dan'},
+    {id:'laundry',name:'Oprati turu veša, ako ga ima',note:'Opcionalno — samo kad se skupi dovoljno veša.',type:'daily',group:'Svaki dan'},
+    {id:'bed',name:'Složiti krevet',type:'daily',group:'Svaki dan'},
+    {id:'table',name:'Ostaviti blagovaonski stol čist',type:'daily',group:'Svaki dan'},
+    {id:'clothes',name:'Odložiti čisti veš u ormare',type:'daily',group:'Svaki dan'},
+    {id:'desk',name:'Urediti gaming stol',type:'daily',group:'Svaki dan'},
+    {id:'sofa',name:'Ostaviti kauč prazan',type:'daily',group:'Svaki dan'},
+    {id:'trash',name:'Izbaciti smeće ako je puno',note:'Po potrebi.',type:'daily',group:'Svaki dan'},
+    {id:'vacuum',name:'Usisati',note:'Cilj barem jednom u 2 dana; može i svaki dan.',type:'interval',days:2,group:'Redovito'},
+    {id:'bathroom',name:'Izribati kupaonicu',note:'Otprilike svaka 4 dana.',type:'interval',days:4,group:'Redovito'},
+    {id:'floors',name:'Oprati podove',note:'Otprilike svakih 8 dana.',type:'interval',days:8,group:'Redovito'},
+    {id:'windows',name:'Oprati prozore',note:'Svaka 2 tjedna.',type:'interval',days:14,group:'Redovito'}
+  ];
+  const careTasks = [
+    {id:'hair',name:'Oprati kosu',type:'daily'},
+    {id:'shower',name:'Tuširati se',type:'daily'},
+    {id:'makeup',name:'Očistiti šminku',type:'daily'},
+    {id:'facecream',name:'Namazati kremu na lice',type:'daily'},
+    {id:'back',name:'Očistiti leđa i poprsje alkoholom',type:'daily'},
+    {id:'scars',name:'Namazati ožiljke kremom',type:'daily'},
+    {id:'acid',name:'Staviti kiselinu na leđa i poprsje',note:'Svaka 3 dana.',type:'interval',days:3}
+  ];
+  const STORAGE='mojMaliRed_v1';
+  let state; try {state=JSON.parse(localStorage.getItem(STORAGE))||{daily:{},interval:{},shopping:[]}} catch(e){state={daily:{},interval:{},shopping:[]}}
+  state.daily=state.daily||{};state.interval=state.interval||{};state.shopping=state.shopping||[];
+  const $=id=>document.getElementById(id), picker=$('datePicker');
+  const pad=n=>String(n).padStart(2,'0');
+  const localKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  const fromKey=s=>{const p=s.split('-').map(Number);return new Date(p[0],p[1]-1,p[2],12)};
+  const todayKey=localKey(new Date()); picker.value=todayKey;
+  let activeView='home';
+  const save=()=>{try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){}}
+  const selected=()=>picker.value||todayKey;
+  function daysBetween(a,b){return Math.floor((fromKey(b)-fromKey(a))/86400000)}
+  function lastDone(id,date){const dates=state.interval[id]||[];const prior=dates.filter(d=>d<=date).sort();return prior.length?prior[prior.length-1]:null}
+  function isDone(task,date){return task.type==='daily'?!!(state.daily[date]&&state.daily[date][task.id]):(state.interval[task.id]||[]).includes(date)}
+  function taskStatus(task,date){if(isDone(task,date))return {label:'Gotovo',cls:'done-badge'};if(task.type==='daily')return {label:task.id==='laundry'?'Opcionalno':'Danas',cls:''};const last=lastDone(task.id,date);if(!last)return {label:'Na redu',cls:'due'};const remaining=task.days-daysBetween(last,date);return remaining<=0?{label:'Na redu',cls:'due'}:{label:`Za ${remaining} ${remaining===1?'dan':'dana'}`,cls:''}}
+  function taskRow(task,date){const done=isDone(task,date),status=taskStatus(task,date);return `<div class="task ${done?'done':''}"><input class="check" type="checkbox" aria-label="Označi: ${task.name}" data-id="${task.id}" data-type="${task.type}" ${done?'checked':''}><div class="task-text"><div class="task-name">${task.name}</div>${task.note?`<div class="task-note">${task.note}</div>`:''}</div><span class="badge ${status.cls}">${status.label}</span></div>`}
+  function renderTasks(tasks,containerId,date,grouped){const host=$(containerId);if(!grouped){host.innerHTML=tasks.map(t=>taskRow(t,date)).join('');return}let html='',prev='';for(const task of tasks){if(task.group!==prev){html+=`<div class="group-label">${task.group}</div>`;prev=task.group}html+=taskRow(task,date)}host.innerHTML=html}
+  function updateNavigation(){document.querySelectorAll('.tab').forEach(btn=>{const active=btn.dataset.view===activeView;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active));$(btn.getAttribute('aria-controls')).hidden=!active})}
+  function setView(view){activeView=view;updateNavigation();renderSummary()}
+  function renderSummary(){const date=selected(),title=$('summaryTitle'),sub=$('summarySub'),count=$('summaryCount'),fill=$('meterFill'),right=$('summaryRight'),meter=$('meterFill').parentElement;if(activeView==='home'||activeView==='care'){const tasks=activeView==='home'?homeTasks:careTasks;const done=tasks.filter(t=>isDone(t,date)).length;title.textContent=activeView==='home'?'Kućanski poslovi':'Osobna njega';sub.textContent=new Intl.DateTimeFormat('hr-HR',{weekday:'long',day:'numeric',month:'long'}).format(fromKey(date));count.textContent=`${done}/${tasks.length}`;fill.style.width=`${Math.round(done/tasks.length*100)}%`;right.hidden=false;meter.hidden=false;}else{const pending=state.shopping.filter(item=>!item.bought).length;title.textContent='Shopping lista';sub.textContent='Stavke koje još treba kupiti';count.textContent=`${pending} za kupiti`;meter.hidden=true;right.hidden=false}}
+  function render(){const date=selected();renderTasks(homeTasks,'homeTasks',date,true);renderTasks(careTasks,'careTasks',date,false);const hdone=homeTasks.filter(t=>isDone(t,date)).length,cdone=careTasks.filter(t=>isDone(t,date)).length;$('homeCount').textContent=`${hdone}/${homeTasks.length}`;$('careCount').textContent=`${cdone}/${careTasks.length}`;$('navHomeCount').textContent=`${hdone}/${homeTasks.length}`;$('navCareCount').textContent=`${cdone}/${careTasks.length}`;$('headerDate').textContent=date===todayKey?'Danas':new Intl.DateTimeFormat('hr-HR',{day:'numeric',month:'long'}).format(fromKey(date));renderShopping();renderSummary()}
+  function renderShopping(){const list=$('shopList'),open=state.shopping.filter(i=>!i.bought),bought=state.shopping.filter(i=>i.bought);$('shopCount').textContent=String(open.length);$('navShopCount').textContent=String(open.length);if(!state.shopping.length){list.innerHTML='<div class="empty">Nema stavki na listi.</div>';return}list.innerHTML=[...open,...bought].map(item=>`<div class="shop-item ${item.bought?'bought':''}"><input class="check shop-check" type="checkbox" data-shop="${item.id}" ${item.bought?'checked':''} aria-label="${item.bought?'Označi kao nepotrošeno':'Označi kao kupljeno'}"><span>${escapeHtml(item.text)}</span><button class="delete" data-delete="${item.id}" aria-label="Ukloni stavku" type="button">×</button></div>`).join('')}
+  function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  document.addEventListener('change',e=>{if(e.target.matches('.check[data-id]')){const {id,type}=e.target.dataset,date=selected();if(type==='daily'){state.daily[date]=state.daily[date]||{};state.daily[date][id]=e.target.checked}else{const dates=state.interval[id]||[];state.interval[id]=e.target.checked?[...new Set(dates.concat(date))].sort():dates.filter(d=>d!==date)}save();render()}if(e.target.matches('.shop-check')){const item=state.shopping.find(x=>x.id===e.target.dataset.shop);if(item)item.bought=e.target.checked;save();renderShopping();renderSummary()}});
+  $('addForm').addEventListener('submit',e=>{e.preventDefault();const input=$('shopInput'),text=input.value.trim();if(!text)return;state.shopping.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text,bought:false});input.value='';save();renderShopping();renderSummary();input.focus()});
+  $('shopList').addEventListener('click',e=>{const id=e.target.dataset.delete;if(id){state.shopping=state.shopping.filter(x=>x.id!==id);save();renderShopping();renderSummary()}});
+  picker.addEventListener('change',render);
+  function shift(n){const d=fromKey(selected());d.setDate(d.getDate()+n);picker.value=localKey(d);render()}
+  $('prevDay').addEventListener('click',()=>shift(-1));$('nextDay').addEventListener('click',()=>shift(1));$('todayBtn').addEventListener('click',()=>{picker.value=todayKey;render()});
+  document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>setView(btn.dataset.view)));
+  render();updateNavigation();
+})();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4d305f5def5f7ef',t:'MTc5MjQ0Njg4Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
